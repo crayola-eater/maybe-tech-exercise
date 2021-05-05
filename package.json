@@ -12,6 +12,7 @@
     "build": "rm -rf ./build && tsc -p ."
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.1.16",
     "axios": "^0.21.1"
   }
 }
