@@ -1,5 +1,8 @@
 import { State } from "../state";
-import { getPostcodeData } from "../util/postcodes";
+import {
+  getPostcodeData,
+  getDistanceBetweenPostcodes,
+} from "../util/postcodes";
 
 export type HandlerArgs = {
   [P: string]: any;
@@ -25,5 +28,19 @@ export const setHome: HandlerWithState = async ({ postcode }, state) => {
 
   return {
     message: `Home location set to ${postcodeData.nuts}`,
+  };
+};
+
+export const findDistance: HandlerWithState = async ({ postcode }, state) => {
+  if (!state?.location?.postcode) {
+    throw new Error(
+      `Failed to find distance as there is no existing location. Did you forget to call: set home <post_code>?`
+    );
+  }
+  const [from, to] = [state.location.postcode, postcode];
+  const distance = await getDistanceBetweenPostcodes(from, to);
+
+  return {
+    message: `Location is ${distance} from home`,
   };
 };
