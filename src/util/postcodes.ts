@@ -34,3 +34,18 @@ export const getDistanceBetweenPostcodes = async (from: string, to: string) => {
 
   return distance;
 };
+
+export const getDirectionsToPostcode = async (from: string, to: string) => {
+  // INCOMPLETE
+
+  const maps = new Client();
+
+  const { data } = await maps.directions({
+    params: {
+      origin: from,
+      destination: to,
+      key: GOOGLE_MAPS_API_KEY,
+      units: UnitSystem.metric,
+    },
+  });
+};
