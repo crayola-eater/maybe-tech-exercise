@@ -1,4 +1,5 @@
 import { State } from "../state";
+import { getPostcodeData } from "../util/postcodes";
 
 export type HandlerArgs = {
   [P: string]: any;
@@ -15,5 +16,17 @@ export type HandlerWithState = (
 export const alive: Handler = async () => {
   return {
     message: "Hi! I’m still here!",
+  };
+};
+
+export const setHome: HandlerWithState = async (
+  { postcode }: HandlerArgs,
+  state
+) => {
+  const postcodeData = await getPostcodeData(postcode);
+  state.location = postcodeData;
+
+  return {
+    message: `Home location set to ${postcodeData.nuts}`,
   };
 };
