@@ -2,13 +2,13 @@ export type HandlerArgs = {
   [P: string]: any;
 };
 
-export type Handler = (
-  args: HandlerArgs
-) => {
+export type HandlerReturn = Promise<{
   message: string;
-};
+}>;
 
-export const alive: Handler = () => {
+export type Handler = (args: HandlerArgs) => HandlerReturn;
+
+export const alive: Handler = async () => {
   return {
     message: "Hi! I’m still here!",
   };
