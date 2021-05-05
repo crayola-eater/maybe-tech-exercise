@@ -44,3 +44,10 @@ export const findDistance: HandlerWithState = async ({ postcode }, state) => {
     message: `Location is ${distance} from home`,
   };
 };
+
+export const findDirections: Handler = async ({ from, to }) => {
+  // INCOMPLETE
+  return {
+    message: "",
+  };
+};
