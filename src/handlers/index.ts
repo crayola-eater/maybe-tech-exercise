@@ -19,10 +19,7 @@ export const alive: Handler = async () => {
   };
 };
 
-export const setHome: HandlerWithState = async (
-  { postcode }: HandlerArgs,
-  state
-) => {
+export const setHome: HandlerWithState = async ({ postcode }, state) => {
   const postcodeData = await getPostcodeData(postcode);
   state.location = postcodeData;
 
