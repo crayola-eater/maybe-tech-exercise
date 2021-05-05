@@ -6,7 +6,7 @@ const readline = createInterface({
 });
 
 export const getUserInput = (displayText: string) => {
-  return new Promise((resolve) => {
+  return new Promise<string>((resolve) => {
     readline.question(displayText, resolve);
   });
 };
