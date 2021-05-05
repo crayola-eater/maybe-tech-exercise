@@ -10,3 +10,5 @@ export const getUserInput = (displayText: string) => {
     readline.question(displayText, resolve);
   });
 };
+
+export const closeReadline = () => readline.close();
