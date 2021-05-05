@@ -1,8 +1,8 @@
 export const patterns = [
-  /(?<cmd>quit)/,
-  /(?<cmd>alive)/,
-  /(?<cmd>set home) (?<postcode>.+)/,
-  /(?<cmd>find distance) (?<distance>)/,
-  /(?<cmd>find directions from) (?<a>.+) to (?<b>.+)/,
-  /(?<cmd>set distance to) (?<units>miles|km|radians)/,
+  /^(?<cmd>quit)$/i,
+  /^(?<cmd>alive)$/i,
+  /^(?<cmd>set home) (?<postcode>.+)$/i,
+  /^(?<cmd>find distance) (?<distance>)$/i,
+  /^(?<cmd>find directions from) (?<a>.+) to (?<b>.+)$/i,
+  /^(?<cmd>set distance to) (?<units>miles|km|radians)$/i,
 ];
