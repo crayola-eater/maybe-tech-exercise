@@ -10,5 +10,8 @@
     "start": "node ./build/index.js",
     "dev": "ts-node-dev ./src/index.ts",
     "build": "rm -rf ./build && tsc -p ."
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
   }
 }
